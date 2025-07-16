@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { GET_COLUMNS_API_URL } from "@/core/config/app";
 
 export default function DuplicatesService() {
   const [file, setFile] = useState<File | null>(null);
@@ -33,7 +34,7 @@ export default function DuplicatesService() {
       formData.append("file", selectedFile);
 
       try {
-        const response = await fetch("http://localhost:8000/columns/", {
+        const response = await fetch(GET_COLUMNS_API_URL, {
           method: "POST",
           body: formData,
         });

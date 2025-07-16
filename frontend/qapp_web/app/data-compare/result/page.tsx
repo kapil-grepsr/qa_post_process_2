@@ -60,9 +60,12 @@ export default function ResultPage() {
       case "changePct":
         return fileResult.changePct != null ? `${fileResult.changePct}%` : "-";
       case "missingValues":
-        return "-";
+        // Use missing_counts from results here
+        return results?.missing_counts?.[fileResult.filename] != null
+          ? results.missing_counts[fileResult.filename]
+          : "-";
       case "columns":
-        // We won't call this here because columns are rendered as a list separately
+        // Columns are rendered separately in the table body
         return "-";
       default:
         return "-";

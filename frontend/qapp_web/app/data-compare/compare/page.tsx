@@ -11,15 +11,18 @@ export default function ComparePage() {
     filenames,
     baseFileIndex,
     setBaseFileIndex,
-    isProcessing,
+    primaryColumn,
+    setPrimaryColumn,
     onFileChange,
     addFile,
     handleCompare,
+    loading,
+    baseFileColumns,
   } = useCompareService();
 
   return (
     <>
-      <form onSubmit={handleCompare} className="max-w-xl mx-auto p-6 space-y-6">
+      <form onSubmit={handleCompare} className="max-w-xl mx-auto p-6 space-y-6" noValidate>
         <h1 className="text-3xl font-semibold">Compare CSV Files</h1>
 
         <div className="space-y-4">
@@ -54,23 +57,49 @@ export default function ComparePage() {
           ))}
         </div>
 
+        <div>
+          <label htmlFor="primaryColumn" className="block mb-2 font-medium">
+            Primary Column
+          </label>
+          <input
+            id="primaryColumn"
+            list="primaryColumnsList"
+            type="text"
+            value={primaryColumn}
+            onChange={(e) => setPrimaryColumn(e.target.value)}
+            placeholder="Select or type primary column"
+            className="w-full border rounded px-3 py-2"
+            disabled={!baseFileColumns.length || loading}
+          />
+          <datalist id="primaryColumnsList">
+            {baseFileColumns.map((col) => (
+              <option key={col} value={col} />
+            ))}
+          </datalist>
+        </div>
+
         <div className="flex space-x-4">
           <Button
             onClick={addFile}
             type="button"
             variant="outline"
             className="hover:bg-gray-100 transition-colors"
+            disabled={loading}
           >
             + Upload More
           </Button>
 
-          <Button type="submit" className="hover:bg-primary/80 transition-colors">
-            Compare
+          <Button
+            type="submit"
+            className="hover:bg-primary/80 transition-colors"
+            disabled={loading}
+          >
+            {loading ? "Comparing..." : "Compare"}
           </Button>
         </div>
       </form>
 
-      <GoHome isProcessing={isProcessing} position="footer" />
+      <GoHome isProcessing={loading} position="footer" />
     </>
   );
 }
