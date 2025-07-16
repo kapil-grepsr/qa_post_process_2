@@ -12,7 +12,7 @@ import {
   updateFile,
   navigateToDuplicates,
 } from "./service";
-import { CONCAT_API_URL } from "@/app/services/config";
+import { CONCAT_API_URL } from "@/core/config/app";
 
 export default function ConcatPage() {
   const [fileCount, setFileCount] = useState(2);

@@ -1,4 +1,4 @@
-import { CONCAT_API_URL } from "@/app/services/config";
+import { CONCAT_API_URL } from "@/core/config/app";
 
 // service.ts
 export type FilesState = (File | null)[];

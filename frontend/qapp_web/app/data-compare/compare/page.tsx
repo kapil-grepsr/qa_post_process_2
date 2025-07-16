@@ -22,7 +22,11 @@ export default function ComparePage() {
 
   return (
     <>
-      <form onSubmit={handleCompare} className="max-w-xl mx-auto p-6 space-y-6" noValidate>
+      <form
+        onSubmit={handleCompare}
+        className="max-w-xl mx-auto p-6 space-y-6"
+        noValidate
+      >
         <h1 className="text-3xl font-semibold">Compare CSV Files</h1>
 
         <div className="space-y-4">
@@ -50,9 +54,7 @@ export default function ComparePage() {
                   <span>Base file</span>
                 </label>
               </div>
-              <p className="mt-2 text-sm text-gray-500">
-                {filename || "No file selected"}
-              </p>
+              <p className="mt-2 text-sm text-gray-500">{filename || "No file selected"}</p>
             </div>
           ))}
         </div>
