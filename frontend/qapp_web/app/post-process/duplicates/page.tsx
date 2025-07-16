@@ -1,6 +1,6 @@
 // app/duplicates/page.tsx
 import React, { Suspense } from "react";
-import DuplicatesService from "./DuplicatesService";
+import DuplicatesService from "./useDuplicate";
 
 export default function DuplicatesPage() {
   return (

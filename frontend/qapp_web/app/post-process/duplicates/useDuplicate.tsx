@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { GET_COLUMNS_API_URL } from "@/core/config/app";
+import { GET_COLUMNS_API_URL, CHECK_DUPLICATES_API_URL } from "@/core/config/app";
 
 export default function DuplicatesService() {
   const [file, setFile] = useState<File | null>(null);
@@ -74,7 +74,7 @@ export default function DuplicatesService() {
     formData.append("primary_column", selectedPrimary);
 
     try {
-      const response = await fetch("http://localhost:8000/duplicates/check-duplicates", {
+      const response = await fetch(CHECK_DUPLICATES_API_URL, {
         method: "POST",
         body: formData,
       });
