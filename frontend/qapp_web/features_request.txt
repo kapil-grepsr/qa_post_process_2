@@ -1,0 +1,3 @@
+null not null ratio
+fill rate
+value counts - groupby feature

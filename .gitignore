@@ -1,0 +1,54 @@
+# Ignore Python virtual environment inside backend
+/backend/qappenv/
+
+# Python cache files
+/backend/__pycache__/
+/backend/app/__pycache__/
+/backend/**/*.pyc
+/backend/**/*.pyo
+/backend/**/*.pyd
+
+# Python environment and config files
+/backend/.env
+
+# Backend uploads folder (optional)
+/backend/uploads/
+
+# Node modules for frontend
+/frontend/qapp_web/node_modules/
+
+# Yarn, pnpm, and related files for frontend
+/frontend/qapp_web/.pnp
+/frontend/qapp_web/.pnp.*
+/frontend/qapp_web/.yarn/*
+!/frontend/qapp_web/.yarn/patches
+!/frontend/qapp_web/.yarn/plugins
+!/frontend/qapp_web/.yarn/releases
+!/frontend/qapp_web/.yarn/versions
+
+# Next.js build and output folders
+/frontend/qapp_web/.next/
+/frontend/qapp_web/out/
+/frontend/qapp_web/build/
+
+# Miscellaneous
+.DS_Store
+*.pem
+
+# Debug logs frontend
+/frontend/qapp_web/npm-debug.log*
+/frontend/qapp_web/yarn-debug.log*
+/frontend/qapp_web/yarn-error.log*
+/frontend/qapp_web/.pnpm-debug.log*
+
+# Environment files (both backend and frontend)
+/backend/.env
+/frontend/qapp_web/.env
+*.env
+
+# Vercel deployment files (frontend)
+/frontend/qapp_web/.vercel
+
+# TypeScript build info (frontend)
+/frontend/qapp_web/*.tsbuildinfo
+/frontend/qapp_web/next-env.d.ts
